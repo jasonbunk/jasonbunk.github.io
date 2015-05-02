@@ -1,0 +1,52 @@
+---
+layout: default
+title: Projects
+permalink: /projects/
+---
+
+<div class="posts">
+  <h1 class="text-center">My Projects</h1>
+  {% for post in site.categories['projects'] %}
+  {% capture thecycle %}{% cycle 'odd', 'even' %}{% endcapture %}
+  {% if thecycle == 'odd' %}
+    <div class = "row" style="margin-bottom:70px;">
+    <article class="post">
+      <div class="col-md-7">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      </div>
+      <div class = "col-md-5">
+        <img src ="{{post.imgurl}}"class="pull-right img-rounded"></img>
+      </div>
+    </article>
+</div>
+<hr class="featurette-divider">
+  {% endif %}
+  {% if thecycle == 'even' %}
+
+    <div class = "row" style="margin-bottom:70px;">
+    <article class="post">
+     <div class = "col-md-5">
+        <img src ="{{post.imgurl}}"class="pull-left img-rounded"></img>
+      </div>
+      <div class="col-md-7">
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.excerpt }}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+      </div>
+
+    </article>
+</div>
+<hr class="featurette-divider">
+  {% endif %}
+  {% endfor %}
+</div>
